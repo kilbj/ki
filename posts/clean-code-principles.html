@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写给自己的代码整洁之道 — 牢大的个人博客</title>
+  <meta name="description" content="好的代码不是写出来的，而是改出来的。">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">牢大的个人博客</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../blog.html" class="active">文章</a></li>
+        <li><a href="../reading.html">书单</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../contact.html">留言</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container container--narrow article">
+    <h1>写给自己的代码整洁之道</h1>
+    <div class="meta">
+      <span>2025-02-10</span> · <span>7 min</span> · <span class="tag">工程实践</span>
+    </div>
+
+        <div class="article-body">
+          <p>好的代码不是写出来的，而是改出来的。每次回头看自己几个月前的代码，总会发现可以改进的地方。这篇文章记录了我坚持的几个简单原则。</p>
+
+          <h2>命名：代码是最好的文档</h2>
+
+          <p>变量名、函数名、类名——命名是代码可读性的第一道防线。</p>
+
+          <pre><code>// ❌ 糟糕的命名
+const d = new Date();
+const arr = getData();
+arr.forEach(i => { /* ... */ });
+
+// ✅ 清晰的命名
+const today = new Date();
+const users = fetchActiveUsers();
+users.forEach(user => sendWelcomeEmail(user));</code></pre>
+
+          <p>好的命名让代码自我解释。如果你需要写注释来解释一个变量是做什么的，那通常是命名不够好。</p>
+
+          <h2>函数：小而专一</h2>
+
+          <p>一个函数只做一件事。如果一个函数需要做多件事，它就应当被拆分成多个函数。</p>
+
+          <blockquote>
+            "函数的第一条规则是要短小。第二条规则是还要更短小。" —— Robert C. Martin
+          </blockquote>
+
+          <p>如何判断一个函数做了多件事？看它的描述中是否出现了"和"字："这个函数验证用户输入<strong>和</strong>保存到数据库"——拆！</p>
+
+          <h2>避免过度优化</h2>
+
+          <p>过早的优化是万恶之源。先写出清晰正确的代码，然后在性能热点上进行优化。大多数时候，代码的可读性比性能更重要。</p>
+
+          <h2>DRY 但不要过度</h2>
+
+          <p>不要重复自己（DRY）是一个好原则，但过度抽象同样有害。一个规则：<strong>三次重复之前，接受重复</strong>。当你第三次写相似的代码时，你才真正理解了提取公共部分的合理边界。</p>
+
+          <h2>写有效的注释</h2>
+
+          <p>好的注释解释"为什么"，而不是"是什么"：</p>
+
+          <pre><code>// ❌ 解释是什么（废话注释）
+// 将 count 加 1
+count++;
+
+// ✅ 解释为什么
+// 使用 setTimeout 而不是 setInterval 来确保
+// 前一次请求完成后再开始下一次轮询
+function poll() {
+  fetch('/api/status').then(() => setTimeout(poll, 1000));
+}</code></pre>
+
+          <h2>保持一致性</h2>
+
+          <p>比选择哪种风格更重要的事情是：在同一个项目中保持一致。使用 Prettier 和 ESLint 来自动化风格检查，让团队不用在代码格式上浪费精力。</p>
+
+          <p>整洁的代码不仅让你自己和同事的生活更轻松，也是对未来的自己的尊重。六个月后的你看到现在的代码，会说"这代码写得不错"——这才是终极的褒奖。</p>
+        </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>牢大的个人博客</span>. 用 ❤️ 制作</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web 开发入门指南 — 牢大的个人博客</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article { padding: 20px 0 50px; }
+    .article h1 { font-size: 24px; margin-bottom: 12px; }
+    .article .meta { font-size: 14px; color: #888; margin-bottom: 30px; }
+    .article .meta .tag { display: inline-block; background: #e8f0fe; color: #4a90d9; font-size: 12px; padding: 2px 10px; border-radius: 3px; }
+    .article-body { font-size: 15px; line-height: 1.9; }
+    .article-body h2 { font-size: 20px; margin: 30px 0 12px; }
+    .article-body h3 { font-size: 17px; margin: 24px 0 10px; }
+    .article-body p { margin-bottom: 16px; }
+    .article-body ul, .article-body ol { margin-bottom: 16px; padding-left: 20px; }
+    .article-body li { margin-bottom: 6px; }
+    .article-body blockquote { border-left: 3px solid #4a90d9; padding: 12px 20px; margin: 20px 0; background: #f8f9fa; color: #666; }
+    .article-body code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+    .article-body pre { background: #f5f5f5; padding: 16px; border-radius: 4px; overflow-x: auto; margin: 16px 0; border: 1px solid #eee; }
+    .article-body pre code { background: none; padding: 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">牢大的个人博客</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../blog.html" class="active">文章</a></li>
+        <li><a href="../reading.html">书单</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../contact.html">留言</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container article">
+    <h1>Web 开发入门指南</h1>
+    <div class="meta">
+      <span>2025-03-15</span> · <span>8 min</span> · <span class="tag">前端</span>
+    </div>
+
+    <div class="article-body">
+      <p>Web 开发的世界发展迅速，对于初学者来说，面对众多的技术和框架，很容易感到迷茫。本文旨在为你梳理一条清晰的学习路径。</p>
+
+      <h2>第一步：打好基础三件套</h2>
+      <p>无论你最终选择什么框架，HTML、CSS 和 JavaScript 是永恒的基础。</p>
+      <p><strong>HTML</strong> 是骨架——它定义了网页的结构和内容。学习语义化标签（<code>&lt;header&gt;</code>、<code>&lt;main&gt;</code>、<code>&lt;article&gt;</code> 等）是写出可维护页面的第一步。</p>
+      <p><strong>CSS</strong> 是皮肤——它决定了页面的视觉表现。从盒模型、Flexbox 到 Grid，逐步掌握布局能力。</p>
+      <pre><code>/* 一个简单的卡片布局 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}</code></pre>
+      <p><strong>JavaScript</strong> 是肌肉——它让页面变得可交互。从 DOM 操作到异步编程，这是投入时间最多的部分。</p>
+
+      <h2>第二步：选择一个框架</h2>
+      <ul>
+        <li><strong>React</strong> — 生态丰富，适合大型应用</li>
+        <li><strong>Vue</strong> — 上手简单，文档优秀</li>
+        <li><strong>Svelte</strong> — 编译时框架，打包体积小</li>
+      </ul>
+
+      <blockquote>框架只是工具，不是目的。理解背后的设计思想比背诵 API 更重要。</blockquote>
+
+      <h2>第三步：开发工具链</h2>
+      <ul>
+        <li><strong>版本控制</strong> — Git + GitHub</li>
+        <li><strong>包管理器</strong> — npm / pnpm</li>
+        <li><strong>构建工具</strong> — Vite</li>
+      </ul>
+
+      <h2>第四步：持续学习</h2>
+      <p>Web 开发需要持续学习。写博客、做项目、参与开源都是很好的成长方式。记住，做出一个能用的产品，比完美地理解所有概念更重要。</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>牢大的个人博客</span>. 用 ❤️ 制作</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

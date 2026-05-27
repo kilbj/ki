@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端工程师的 Docker 入门实践 — 牢大的个人博客</title>
+  <meta name="description" content="容器化开发环境、Nginx 部署、多阶段构建。">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">牢大的个人博客</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../blog.html" class="active">文章</a></li>
+        <li><a href="../reading.html">书单</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../contact.html">留言</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container container--narrow article">
+    <h1>前端工程师的 Docker 入门实践</h1>
+    <div class="meta">
+      <span>2024-12-05</span> · <span>7 min</span> · <span class="tag">工具</span>
+    </div>
+        <div class="article-body">
+          <p>Docker 不再是后端的专利。前端开发中用 Docker 做环境统一、CI/CD 部署，能省下大量"在我电脑上能跑啊"的时间。</p>
+          <h2>为什么前端要用 Docker？</h2>
+          <ul>
+            <li><strong>环境一致</strong> — 团队统一 Node 版本、系统依赖</li>
+            <li><strong>快速部署</strong> — 多阶段构建让镜像更小，部署更快</li>
+            <li><strong>隔离</strong> — 不同项目用不同环境，互不干扰</li>
+          </ul>
+          <h2>一个简单的 Nginx 部署</h2>
+          <pre><code># Dockerfile
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+          <p>多阶段构建的好处是最终镜像只包含 Nginx 和构建产物，没有 node_modules 等冗余文件。</p>
+          <h2>docker-compose 开发环境</h2>
+          <p>用 docker-compose 可以同时启动前端、后端和数据库，一条命令拉起整个开发环境。</p>
+          <blockquote>Docker 的学习曲线对前端来说不算陡。先掌握 Dockerfile 和 docker-compose 就够日常用了。</blockquote>
+        </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>牢大的个人博客</span>. 用 ❤️ 制作</p>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

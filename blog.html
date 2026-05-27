@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>牢大</title>
+  <title>文章 — 牢大</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- 导航栏 -->
   <nav>
     <div class="container nav-inner">
-      <a href="index.html" class="logo"><span>牢大的个人博客</span></a>
+      <a href="index.html" class="logo">牢大的个人博客</a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">首页</a></li>
-        <li><a href="blog.html">文章</a></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="blog.html" class="active">文章</a></li>
         <li><a href="reading.html">书单</a></li>
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">留言</a></li>
@@ -22,61 +21,14 @@
     </div>
   </nav>
 
-  <!-- 页面标题 -->
   <div class="page-header">
     <div class="container">
-      <h1>你好，我是牢大 👋</h1>
-      <p>一名热爱技术的大学生，在这里记录我的学习与思考</p>
+      <h1>📝 所有文章</h1>
+      <p>Web 开发 · 前端 · 学习笔记</p>
     </div>
   </div>
 
-  <!-- 轮播图 -->
   <div class="container">
-    <div class="carousel-box">
-      <div class="slider">
-        <div class="slider-track" id="sliderTrack">
-          <div class="slide">
-            <div class="slide-content">
-              <span class="slide-tag">新手上路</span>
-              <h3>Web 开发入门指南</h3>
-              <p>从 HTML、CSS 到 JavaScript，带你走进 Web 开发的世界。</p>
-              <a href="posts/getting-started-with-web-dev.html" class="btn">阅读 →</a>
-            </div>
-            <div class="slide-icon">🌐</div>
-          </div>
-          <div class="slide">
-            <div class="slide-content">
-              <span class="slide-tag">CSS</span>
-              <h3>CSS Grid 布局入门</h3>
-              <p>学会 Grid 布局，让你的页面排版更灵活。</p>
-              <a href="posts/css-grid-mastery.html" class="btn">阅读 →</a>
-            </div>
-            <div class="slide-icon">🎯</div>
-          </div>
-          <div class="slide">
-            <div class="slide-content">
-              <span class="slide-tag">学习心得</span>
-              <h3>代码整洁之道</h3>
-              <p>好的代码不是写出来的，而是改出来的。</p>
-              <a href="posts/clean-code-principles.html" class="btn">阅读 →</a>
-            </div>
-            <div class="slide-icon">✨</div>
-          </div>
-        </div>
-        <button class="prev-btn" onclick="moveSlide(-1)">‹</button>
-        <button class="next-btn" onclick="moveSlide(1)">›</button>
-      </div>
-      <div class="dots" id="dots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 最新文章 -->
-  <div class="container">
-    <h2 class="section-title">最新文章</h2>
     <div class="card-grid">
 
       <div class="card">
@@ -121,10 +73,31 @@
         <div class="meta">2025-01-15 · 9 min</div>
       </div>
 
+      <div class="card">
+        <span class="tag">前端</span>
+        <h3><a href="posts/vue3-composition-api.html">Vue 3 Composition API 笔记</a></h3>
+        <p class="desc">从 Options API 到 Composition API 的迁移心得。</p>
+        <div class="meta">2024-12-20 · 8 min</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">工具</span>
+        <h3><a href="posts/docker-for-frontend.html">前端 Docker 入门</a></h3>
+        <p class="desc">容器化开发环境、Nginx 部署、多阶段构建。</p>
+        <div class="meta">2024-12-05 · 7 min</div>
+      </div>
+
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination">
+      <span class="current">1</span>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">→</a>
     </div>
   </div>
 
-  <!-- 页脚 -->
   <footer>
     <div class="container">
       <p>© 2025 <span>牢大的个人博客</span>. 用 ❤️ 制作</p>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3 Composition API 实战笔记 — 牢大的个人博客</title>
+  <meta name="description" content="从 Options API 到 Composition API 的迁移心得。">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">牢大的个人博客</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../blog.html" class="active">文章</a></li>
+        <li><a href="../reading.html">书单</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../contact.html">留言</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container container--narrow article">
+    <h1>Vue 3 Composition API 实战笔记</h1>
+    <div class="meta">
+      <span>2024-12-20</span> · <span>8 min</span> · <span class="tag">前端</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>Vue 3 的 Composition API 提供了一种全新的逻辑组织方式。本文分享从 Options API 迁移过程中的心得。</p>
+          <h2>为什么选择 Composition API？</h2>
+          <p>Options API 在组件逻辑复杂时，同一个功能的代码分散在 data、methods、computed 中，难以维护。Composition API 让我们按功能组织代码。</p>
+          <pre><code>// 使用 setup 函数组织逻辑
+export default {
+  setup() {
+    const count = ref(0);
+    const double = computed(() => count.value * 2);
+    function increment() { count.value++; }
+    return { count, double, increment };
+  }
+};</code></pre>
+          <h2>ref  vs  reactive</h2>
+          <p><code>ref</code> 用于基本类型和需要重新赋值的场景，<code>reactive</code> 用于对象。实践中推荐优先使用 <code>ref</code>，它的语义更统一。</p>
+          <blockquote>Composition API 不是要取代 Options API，而是提供更多的灵活性。在简单组件中继续使用 Options API 完全没问题。</blockquote>
+          <h2>自定义 Hook 复用</h2>
+          <p>将可复用的逻辑提取为以 <code>use</code> 开头的函数，这是 Composition API 最强大的特性之一。</p>
+        </div>
+  </div>
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>牢大的个人博客</span>. 用 ❤️ 制作</p>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
